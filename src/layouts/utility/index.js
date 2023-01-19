@@ -17,36 +17,15 @@ Coded by www.creative-tim.com
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import { useState } from "react";
-import { Collapse, List, ListItem, ListItemIcon, ListItemText, MenuItem } from "@mui/material";
-import AbcIcon from "@mui/icons-material/Abc";
 
-function Master() {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
+function Utility() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <p>Master</p>
-      <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <AbcIcon />
-        </ListItemIcon>
-        <ListItemText primary="Technical Analysis" />
-        {open ? <AbcIcon /> : <AbcIcon />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <MenuItem>Item 1</MenuItem>
-          <MenuItem>Item 2</MenuItem>
-        </List>
-      </Collapse>
+      <p>Utility</p>
       <Footer />
     </DashboardLayout>
   );
 }
 
-export default Master;
+export default Utility;

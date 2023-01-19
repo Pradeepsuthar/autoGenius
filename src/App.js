@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Material Dashboard 2 React - v2.1.0
+* Auto Genius React - v2.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/material-dashboard-react
@@ -23,24 +23,21 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 
-// Material Dashboard 2 React components
+// Auto Genius React components
 import MDBox from "components/MDBox";
 
-// Material Dashboard 2 React example components
+// Auto Genius React example components
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
 
-// Material Dashboard 2 React themes
+// Auto Genius React themes
 import theme from "assets/theme";
-import themeRTL from "assets/theme/theme-rtl";
 
 // Material Dashboard 2 React Dark Mode themes
 import themeDark from "assets/theme-dark";
-import themeDarkRTL from "assets/theme-dark/theme-rtl";
 
 // RTL plugins
 import rtlPlugin from "stylis-plugin-rtl";
-import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
 // Material Dashboard 2 React routes
@@ -68,7 +65,7 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
-
+  console.log(rtlCache);
   // Cache for the rtl
   useMemo(() => {
     const cacheRtl = createCache({
@@ -146,32 +143,7 @@ export default function App() {
     </MDBox>
   );
 
-  return direction === "rtl" ? (
-    <CacheProvider value={rtlCache}>
-      <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
-        <CssBaseline />
-        {layout === "dashboard" && (
-          <>
-            <Sidenav
-              color={sidenavColor}
-              brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
-              brandName="Material Dashboard 2"
-              routes={routes}
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
-            />
-            <Configurator />
-            {configsButton}
-          </>
-        )}
-        {layout === "vr" && <Configurator />}
-        <Routes>
-          {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </ThemeProvider>
-    </CacheProvider>
-  ) : (
+  return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
       {layout === "dashboard" && (
@@ -179,7 +151,7 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
-            brandName="Material Dashboard 2"
+            brandName="Auto Genius"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
