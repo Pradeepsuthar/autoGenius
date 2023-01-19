@@ -1,0 +1,63 @@
+[
+  {
+    "title": "Dashboard",
+    "icon": "bi-gear-fill"
+  },
+  {
+    "title": "LeadGraph",
+    "icon": "bi-info-circle-fill",
+    "childrens": [
+      {
+        "title": "Master",
+
+        "icon": "bi-info-circle-fill",
+        "childrens": [
+          {
+            "title": "Entry",
+            "icon": "bi-info-circle-fill",
+            "childrens": [
+              {
+                "title": "Lead",
+                "icon": "bi-person-fill",
+                "childrens": [
+                  {
+                    "title": "Quick Lead Entry",
+                    "icon": "bi-info-circle-fill"
+                  },
+                  {
+                    "title": "Lead Entry",
+                    "icon": "bi-info-circle-fill"
+                  },
+                  {
+                    "title": "Lead Assign",
+                    "icon": "bi-info-circle-fill"
+                  },
+                  {
+                    "title": "Lead Followup",
+                    "icon": "bi-info-circle-fill"
+                  }
+                ]
+              },
+              {
+                "title": "Campaign",
+                "icon": "bi-bug"
+              },
+              {
+                "title": "Test Ride",
+                "icon": "bi-view-list"
+              }
+            ]
+          },
+          {
+            "title": "Reports",
+            "icon": "bi-info-circle-fill"
+          },
+          {
+            "title": "Analytical Report",
+            "icon": "bi-info-circle-fill"
+          }
+        ]
+      }
+    ]
+  }
+]
