@@ -2,7 +2,7 @@
   {
     "title": "Dashboard",
     "icon": "bi-gear-fill",
-    "path":"/dashboard"
+    "path": "/dashboard"
   },
   {
     "title": "LeadGraph",
@@ -23,7 +23,8 @@
                 "childrens": [
                   {
                     "title": "Quick Lead Entry",
-                    "icon": "bi-info-circle-fill"
+                    "icon": "bi-info-circle-fill",
+                    "path": "/leads"
                   },
                   {
                     "title": "Lead Entry",
