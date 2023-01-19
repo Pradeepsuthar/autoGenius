@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 import { useEffect, useMemo } from "react";
 
 // react-router components
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
@@ -37,11 +37,12 @@ import theme from "assets/theme";
 import themeDark from "assets/theme-dark";
 
 // Material Dashboard 2 React routes
-import routes from "routes";
+// import routes from "routes";
 
 // Material Dashboard 2 React contexts
 import { useMaterialUIController, setOpenConfigurator } from "context";
 import SideNav2 from "examples/Sidenav2";
+import Dashboard from "layouts/dashboard";
 
 // Images
 // import brandWhite from "assets/images/logo-ct.png";
@@ -93,18 +94,18 @@ export default function App() {
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
 
-  const getRoutes = (allRoutes) =>
-    allRoutes.map((route) => {
-      if (route.collapse) {
-        return getRoutes(route.collapse);
-      }
+  // const getRoutes = (allRoutes) =>
+  //   allRoutes.map((route) => {
+  //     if (route.collapse) {
+  //       return getRoutes(route.collapse);
+  //     }
 
-      if (route.route) {
-        return <Route exact path={route.route} element={route.component} key={route.key} />;
-      }
+  //     if (route.route) {
+  //       return <Route exact path={route.route} element={route.component} key={route.key} />;
+  //     }
 
-      return null;
-    });
+  //     return null;
+  //   });
 
   const configsButton = (
     <MDBox
@@ -150,8 +151,9 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/dashboard" />} />
+        {/* {getRoutes(routes)} */}
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="*" element={<Navigate to="/dashboard" />} /> */}
       </Routes>
     </ThemeProvider>
   );
