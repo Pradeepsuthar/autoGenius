@@ -6,60 +6,67 @@
   },
   {
     "title": "LeadGraph",
-    "icon": "bi-info-circle-fill",
+    "icon": "bi-people",
     "childrens": [
       {
         "title": "Master",
 
-        "icon": "bi-info-circle-fill",
+        "icon": "bi-grid-3x3-gap-fill",
+        "childrens": []
+      },
+      {
+        "title": "Entry",
+        "icon": "bi-bullseye",
         "childrens": [
           {
-            "title": "Entry",
-            "icon": "bi-info-circle-fill",
+            "title": "Lead",
+            "icon": "bi-person-fill",
             "childrens": [
               {
-                "title": "Lead",
-                "icon": "bi-person-fill",
-                "childrens": [
-                  {
-                    "title": "Quick Lead Entry",
-                    "icon": "bi-info-circle-fill",
-                    "path": "/quickleadentry"
-                  },
-                  {
-                    "title": "Lead Entry",
-                    "icon": "bi-info-circle-fill",
-                    "path": "/leads"
-                  },
-                  {
-                    "title": "Lead Assign",
-                    "icon": "bi-info-circle-fill"
-                  },
-                  {
-                    "title": "Lead Followup",
-                    "icon": "bi-info-circle-fill"
-                  }
-                ]
+                "title": "Quick Lead Entry",
+                "icon": "bi-info-circle-fill",
+                "path": "/quickleadentry"
               },
               {
-                "title": "Campaign",
-                "icon": "bi-bug"
+                "title": "Lead Entry",
+                "icon": "bi-info-circle-fill",
+                "path": "/leads"
               },
               {
-                "title": "Test Ride",
-                "icon": "bi-view-list"
+                "title": "Lead Assign",
+                "icon": "bi-info-circle-fill"
+              },
+              {
+                "title": "Lead Followup",
+                "icon": "bi-info-circle-fill"
+              },
+              {
+                "title": "Contact List",
+                "icon": "bi-info-circle-fill"
               }
             ]
           },
           {
-            "title": "Reports",
-            "icon": "bi-info-circle-fill"
+            "title": "Campaign",
+            "icon": "bi-bug",
+            "childrens": []
           },
           {
-            "title": "Analytical Report",
-            "icon": "bi-info-circle-fill"
+            "title": "Test Ride",
+            "icon": "bi-view-list",
+            "childrens": []
           }
         ]
+      },
+      {
+        "title": "Reports",
+        "icon": "bi-bullseye",
+        "childrens": []
+      },
+      {
+        "title": "Analytical Report",
+        "icon": "bi-bullseye",
+        "childrens": []
       }
     ]
   }

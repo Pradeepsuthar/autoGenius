@@ -1,26 +1,12 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
 import MDBox from "components/MDBox";
-import { useState } from "react";
-import { Form } from "react-bootstrap";
-import { Button } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Card, Form } from "react-bootstrap";
+import { AppBar, Button, Grid, Icon, Tab, Tabs } from "@mui/material";
+import MDTypography from "components/MDTypography";
+
+import "./style.css";
 
 function Leads() {
   const [state, setState] = useState({
@@ -53,296 +39,374 @@ function Leads() {
     });
   };
 
-  console.log(state);
+  const [tabsOrientation, setTabsOrientation] = useState("horizontal");
+
+  const handleSetTabValue = (event, newValue) => setTabValue(newValue);
+
+  const [tabValue, setTabValue] = useState(0);
+
+  useEffect(() => {
+    // A function that sets the orientation state of the tabs.
+    function handleTabsOrientation() {
+      return window.innerWidth < 576
+        ? setTabsOrientation("vertical")
+        : setTabsOrientation("horizontal");
+    }
+
+    /** 
+     The event listener that's calling the handleTabsOrientation function when resizing the window.
+    */
+    window.addEventListener("resize", handleTabsOrientation);
+
+    // Call the handleTabsOrientation function to set the state with the initial value.
+    handleTabsOrientation();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleTabsOrientation);
+  }, [tabsOrientation]);
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox pt={6} pb={3}>
-        <Form>
-          <div>
-            <div className="row ">
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Enquiry Date</Form.Label>
-                <Form.Control
-                  name="enquiryDate"
-                  value={state.enquiryDate}
-                  onChange={handleChange}
-                  type="date"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Location</Form.Label>
-                <Form.Select
-                  name="location"
-                  onChange={handleChange}
-                  value={state.location}
-                  aria-label="Default select example"
-                >
-                  <option>Showroom</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Executive</Form.Label>
-                <Form.Select
-                  name="executive"
-                  onChange={handleChange}
-                  value={state.executive}
-                  aria-label="Default select example"
-                >
-                  <option>Digvijay Singh</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Source</Form.Label>
-                <Form.Select
-                  name="source"
-                  onChange={handleChange}
-                  value={state.source}
-                  aria-label="Default select example"
-                >
-                  <option>Walk In</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Sub Source</Form.Label>
-                <Form.Select
-                  name="subSource"
-                  onChange={handleChange}
-                  value={state.subSource}
-                  disabled
-                  aria-label="Default select example"
-                >
-                  <option>{"<Choose Source>"}</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-            </div>
-            <div className="row">
-              <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
-                <Form.Label>Campaign</Form.Label>
-                <Form.Select
-                  name="campaign"
-                  onChange={handleChange}
-                  value={state.campaign}
-                  disabled
-                  aria-label="Default select example"
-                >
-                  <option>~Select Campaign~</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
-                <Form.Label>Lead Type</Form.Label>
-                <Form.Select
-                  name="leadType"
-                  onChange={handleChange}
-                  value={state.leadType}
-                  aria-label="Default select example"
-                >
-                  <option>Sale</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-            </div>
+        <Card className="px-4 py-5">
+          <MDBox
+            mx={2}
+            mt={-3}
+            py={3}
+            px={2}
+            variant="gradient"
+            bgColor="dark"
+            borderRadius="lg"
+            coloredShadow="info"
+          >
+            <MDTypography variant="h6" color="white">
+              Lead Entry
+            </MDTypography>
+          </MDBox>
+
+          <div className="mx-3 mt-4">
+            <Grid item>
+              <AppBar position="static">
+                <Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>
+                  <Tab
+                    label="Contact Information [ Customer ]"
+                    icon={
+                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
+                        home
+                      </Icon>
+                    }
+                  />
+                  <Tab
+                    label="Other Info"
+                    icon={
+                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
+                        email
+                      </Icon>
+                    }
+                  />
+                  <Tab
+                    label="Appointment Information"
+                    icon={
+                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
+                        settings
+                      </Icon>
+                    }
+                  />
+                  <Tab
+                    label="Vehicle Info"
+                    icon={
+                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
+                        settings
+                      </Icon>
+                    }
+                  />
+                </Tabs>
+              </AppBar>
+            </Grid>
           </div>
-          <div>
-            <div className="row">
-              <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  name="name"
-                  onChange={handleChange}
-                  value={state.name}
-                  type="text"
-                  placeholder="Enter Name"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Mobile No.</Form.Label>
-                <Form.Control
-                  name="mobileNo"
-                  onChange={handleChange}
-                  value={state.mobileNo}
-                  type="text"
-                  placeholder="Enter Mobile"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Whatsapp Phone</Form.Label>
-                <Form.Control
-                  name="whatsappNo"
-                  onChange={handleChange}
-                  value={state.whatsappNo}
-                  type="text"
-                  placeholder="Enter Number"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
-                <Form.Label>Customer Type</Form.Label>
-                <Form.Select
-                  name="customerType"
-                  onChange={handleChange}
-                  value={state.customerType}
-                  aria-label="Default select example"
+
+          <MDBox pt={2}>
+            <Form>
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Enquiry Date</Form.Label>
+                  <Form.Control
+                    name="enquiryDate"
+                    value={state.enquiryDate}
+                    onChange={handleChange}
+                    type="date"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Location</Form.Label>
+                  <Form.Select
+                    name="location"
+                    onChange={handleChange}
+                    value={state.location}
+                    aria-label="Default select example"
+                  >
+                    <option>Showroom</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Executive</Form.Label>
+                  <Form.Select
+                    name="executive"
+                    onChange={handleChange}
+                    value={state.executive}
+                    aria-label="Default select example"
+                  >
+                    <option>Digvijay Singh</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Source</Form.Label>
+                  <Form.Select
+                    name="source"
+                    onChange={handleChange}
+                    value={state.source}
+                    aria-label="Default select example"
+                  >
+                    <option>Walk In</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Sub Source</Form.Label>
+                  <Form.Select
+                    name="subSource"
+                    onChange={handleChange}
+                    value={state.subSource}
+                    disabled
+                    aria-label="Default select example"
+                  >
+                    <option>{"<Choose Source>"}</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Campaign</Form.Label>
+                  <Form.Select
+                    name="campaign"
+                    onChange={handleChange}
+                    value={state.campaign}
+                    disabled
+                    aria-label="Default select example"
+                  >
+                    <option>~Select Campaign~</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Lead Type</Form.Label>
+                  <Form.Select
+                    name="leadType"
+                    onChange={handleChange}
+                    value={state.leadType}
+                    aria-label="Default select example"
+                  >
+                    <option>Sale</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Name</Form.Label>
+                  <Form.Control
+                    name="name"
+                    onChange={handleChange}
+                    value={state.name}
+                    type="text"
+                    placeholder="Enter Name"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Mobile No.</Form.Label>
+                  <Form.Control
+                    name="mobileNo"
+                    onChange={handleChange}
+                    value={state.mobileNo}
+                    type="text"
+                    placeholder="Enter Mobile"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Whatsapp Phone</Form.Label>
+                  <Form.Control
+                    name="whatsappNo"
+                    onChange={handleChange}
+                    value={state.whatsappNo}
+                    type="text"
+                    placeholder="Enter Number"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Customer Type</Form.Label>
+                  <Form.Select
+                    name="customerType"
+                    onChange={handleChange}
+                    value={state.customerType}
+                    aria-label="Default select example"
+                  >
+                    <option>Individual</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Occupation</Form.Label>
+                  <Form.Select
+                    name="occupation"
+                    onChange={handleChange}
+                    value={state.occupation}
+                    aria-label="Default select example"
+                  >
+                    <option>Businesses</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Address</Form.Label>
+                  <Form.Control
+                    name="address"
+                    onChange={handleChange}
+                    value={state.address}
+                    type="text"
+                    placeholder="Enter Address"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">State</Form.Label>
+                  <Form.Select
+                    name="state"
+                    onChange={handleChange}
+                    value={state.state}
+                    aria-label="Default select example"
+                  >
+                    <option>DELHI</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel" value={state.city}>
+                    City
+                  </Form.Label>
+                  <Form.Select
+                    name="city"
+                    onChange={handleChange}
+                    aria-label="Default select example"
+                  >
+                    <option>Deoil (south )</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel" value={state.cityArea}>
+                    City Area
+                  </Form.Label>
+                  <Form.Select
+                    name="cityArea"
+                    onChange={handleChange}
+                    aria-label="Default select example"
+                  >
+                    <option>~Select CityArea~</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel" value={state.pincode}>
+                    Pincode
+                  </Form.Label>
+                  <Form.Control
+                    name="pincode"
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Enter Pincode"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Buying For</Form.Label>
+                  <Form.Select
+                    name="buyingFor"
+                    onChange={handleChange}
+                    value={state.buyingFor}
+                    aria-label="Default select example"
+                  >
+                    <option>Brother</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Email</Form.Label>
+                  <Form.Control
+                    name="email"
+                    onChange={handleChange}
+                    value={state.email}
+                    type="text"
+                    placeholder="Enter Email"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+                  <Form.Label className="formLabel">Lead Followup Status</Form.Label>
+                  <Form.Select
+                    name="leadFollowupStatus"
+                    onChange={handleChange}
+                    value={state.leadFollowupStatus}
+                    aria-label="Default select example"
+                  >
+                    <option>~Select Status~</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </Form.Select>
+                </Form.Group>
+              </div>
+
+              <div className="row mx-4 mt-4">
+                <Button
+                  className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
+                  variant="contained"
+                  color="primary"
                 >
-                  <option>Individual</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-            </div>
-            <div className="row">
-              <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Occupation</Form.Label>
-                <Form.Select
-                  name="occupation"
-                  onChange={handleChange}
-                  value={state.occupation}
-                  aria-label="Default select example"
+                  Save
+                </Button>
+                <Button
+                  className="col-sm-1 ms-20 me-2 text-white"
+                  variant="contained"
+                  color="secondary"
                 >
-                  <option>Businesses</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Address</Form.Label>
-                <Form.Control
-                  name="address"
-                  onChange={handleChange}
-                  value={state.address}
-                  type="text"
-                  placeholder="Enter Address"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>State</Form.Label>
-                <Form.Select
-                  name="state"
-                  onChange={handleChange}
-                  value={state.state}
-                  aria-label="Default select example"
-                >
-                  <option>DELHI</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
-                <Form.Label value={state.city}>City</Form.Label>
-                <Form.Select
-                  name="city"
-                  onChange={handleChange}
-                  aria-label="Default select example"
-                >
-                  <option>Deoil (south )</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-            </div>
-            <div className="row">
-              <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
-                <Form.Label value={state.cityArea}>City Area</Form.Label>
-                <Form.Select
-                  name="cityArea"
-                  onChange={handleChange}
-                  aria-label="Default select example"
-                >
-                  <option>~Select CityArea~</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label value={state.pincode}>Pincode</Form.Label>
-                <Form.Control
-                  name="pincode"
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Enter Pincode"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Buying For</Form.Label>
-                <Form.Select
-                  name="buyingFor"
-                  onChange={handleChange}
-                  value={state.buyingFor}
-                  aria-label="Default select example"
-                >
-                  <option>Brother</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-2" controlId="exampleForm.ControlInput1">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  name="email"
-                  onChange={handleChange}
-                  value={state.email}
-                  type="text"
-                  placeholder="Enter Email"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Lead Followup Status</Form.Label>
-                <Form.Select
-                  name="leadFollowupStatus"
-                  onChange={handleChange}
-                  value={state.leadFollowupStatus}
-                  aria-label="Default select example"
-                >
-                  <option>~Select Status~</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Form.Group>
-            </div>
-            <div className="row mx-1">
-              <Button
-                className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
-                variant="contained"
-                color="primary"
-              >
-                Save
-              </Button>
-              <Button
-                className="col-sm-1 ms-20 me-2 text-white"
-                variant="contained"
-                color="secondary"
-              >
-                Cancel
-              </Button>
-            </div>
-          </div>
-        </Form>
+                  Cancel
+                </Button>
+              </div>
+            </Form>
+          </MDBox>
+        </Card>
       </MDBox>
-      <Footer />
     </DashboardLayout>
   );
 }

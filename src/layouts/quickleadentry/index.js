@@ -1,22 +1,5 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
 import MDBox from "components/MDBox";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
@@ -74,8 +57,8 @@ function QuickLeadEntry() {
           </MDBox>
           <MDBox pt={3}>
             <Form>
-              <div className="row">
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+              <div className="row row-cols-4">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Campaign</Form.Label>
                   <Form.Select
                     name="campaign"
@@ -89,7 +72,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Location</Form.Label>
                   <Form.Select
                     name="location"
@@ -103,7 +86,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     name="name"
@@ -113,9 +96,7 @@ function QuickLeadEntry() {
                     placeholder="Enter Name"
                   />
                 </Form.Group>
-              </div>
-              <div className="row">
-                <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Mobile No.</Form.Label>
                   <Form.Control
                     name="mobileNo"
@@ -125,7 +106,7 @@ function QuickLeadEntry() {
                     placeholder="Enter Mobile"
                   />
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Lead Nature</Form.Label>
                   <Form.Select
                     name="leadNature"
@@ -139,7 +120,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Lead Source</Form.Label>
                   <Form.Select
                     name="leadSource"
@@ -153,9 +134,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-              </div>
-              <div className="row">
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Lead Sub Source</Form.Label>
                   <Form.Select
                     name="leadSubSource"
@@ -169,7 +148,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Product Name</Form.Label>
                   <Form.Select
                     name="productName"
@@ -183,7 +162,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Test Ride</Form.Label>
                   <Form.Select
                     name="testRide"
@@ -197,9 +176,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-              </div>
-              <div className="row">
-                <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Expected Period of Purchase</Form.Label>
                   <Form.Select
                     name="expectedPeriodOfPurchase"
@@ -213,7 +190,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Lead Followup Status</Form.Label>
                   <Form.Select
                     name="leadFollowupStatus"
@@ -227,7 +204,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Next Followup Date</Form.Label>
                   <Form.Control
                     name="nextFollowupDate"
@@ -236,9 +213,7 @@ function QuickLeadEntry() {
                     type="date"
                   />
                 </Form.Group>
-              </div>
-              <div className="row">
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Executive</Form.Label>
                   <Form.Select
                     name="executive"
@@ -252,7 +227,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>State</Form.Label>
                   <Form.Select
                     name="state"
@@ -266,7 +241,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-3" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>City</Form.Label>
                   <Form.Select
                     name="city"
@@ -280,9 +255,7 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
-              </div>
-              <div className="row">
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Remark</Form.Label>
                   <Form.Control
                     name="remark"
@@ -291,7 +264,7 @@ function QuickLeadEntry() {
                     type="text"
                   />
                 </Form.Group>
-                <Form.Group className="mb-3 col-sm-4" controlId="exampleForm.ControlInput1">
+                <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Lead Type</Form.Label>
                   <Form.Select
                     name="leadType"
@@ -326,7 +299,6 @@ function QuickLeadEntry() {
           </MDBox>
         </Card>
       </MDBox>
-      <Footer />
     </DashboardLayout>
   );
 }
