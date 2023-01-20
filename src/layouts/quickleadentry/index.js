@@ -20,7 +20,7 @@ import Footer from "examples/Footer";
 import MDBox from "components/MDBox";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Card } from "@mui/material";
+import { Button, Card } from "@mui/material";
 import MDTypography from "components/MDTypography";
 
 function QuickLeadEntry() {
@@ -57,7 +57,7 @@ function QuickLeadEntry() {
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox pt={6} pb={3}>
-        <Card className="px-4">
+        <Card className="px-4 py-4">
           <MDBox
             mx={2}
             mt={-3}
@@ -305,6 +305,22 @@ function QuickLeadEntry() {
                     <option value="3">Three</option>
                   </Form.Select>
                 </Form.Group>
+              </div>
+              <div className="row mx-1">
+                <Button
+                  className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
+                  variant="contained"
+                  color="primary"
+                >
+                  Save
+                </Button>
+                <Button
+                  className="col-sm-1 ms-20 me-2 text-white"
+                  variant="contained"
+                  color="secondary"
+                >
+                  Cancel
+                </Button>
               </div>
             </Form>
           </MDBox>
