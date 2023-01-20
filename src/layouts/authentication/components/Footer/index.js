@@ -47,22 +47,17 @@ function Footer({ light }) {
             justifyContent="center"
             alignItems="center"
             flexWrap="wrap"
-            color={light ? "white" : "text"}
+            color="text"
             fontSize={size.sm}
+            px={1.5}
           >
             &copy; {new Date().getFullYear()}, made with
-            <MDBox fontSize={size.md} color={light ? "white" : "dark"} mb={-0.5} mx={0.25}>
+            <MDBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
               <Icon color="inherit" fontSize="inherit">
                 favorite
               </Icon>
             </MDBox>
-            by
-            <Link href="https://www.creative-tim.com/" target="_blank">
-              <MDTypography variant="button" fontWeight="medium" color={light ? "white" : "dark"}>
-                &nbsp;Creative Tim&nbsp;
-              </MDTypography>
-            </Link>
-            for a better web.
+            by Heylix Technologies for a better web.
           </MDBox>
           <MDBox
             component="ul"

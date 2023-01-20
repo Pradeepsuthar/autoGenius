@@ -1,3 +1,6 @@
 .dFlex {
   display: flex;
 }
+.mainBody {
+  width: 100%;
+}

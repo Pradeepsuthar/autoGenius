@@ -8,8 +8,7 @@ const SideNav2 = () => {
     <div className="sidebar-container">
       <div className="sidebar">
         <div className="sidebar-header">
-          <i className="bi-info-circle-fill" />
-          <h1>Auto Genius</h1>
+          <h1 className="mx-2">Auto Genius</h1>
         </div>
         <div className="sidebar-buttons">
           {items.map((item, index) => (

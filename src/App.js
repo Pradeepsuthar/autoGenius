@@ -56,11 +56,13 @@ export default function App() {
       <CssBaseline />
       <div className="dFlex">
         <SideNav2 />
-        <Routes>
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/leads" element={<Leads />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
+        <div className="mainBody">
+          <Routes>
+            <Route exact path="/dashboard" element={<Dashboard />} />
+            <Route exact path="/leads" element={<Leads />} />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </Routes>
+        </div>
       </div>
     </ThemeProvider>
   );

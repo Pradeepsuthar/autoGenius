@@ -27,8 +27,7 @@ import MDTypography from "components/MDTypography";
 // Material Dashboard 2 React base styles
 import typography from "assets/theme/base/typography";
 
-function Footer({ company, links }) {
-  const { href, name } = company;
+function Footer({ links }) {
   const { size } = typography;
 
   const renderLinks = () =>
@@ -66,13 +65,7 @@ function Footer({ company, links }) {
             favorite
           </Icon>
         </MDBox>
-        by
-        <Link href={href} target="_blank">
-          <MDTypography variant="button" fontWeight="medium">
-            &nbsp;{name}&nbsp;
-          </MDTypography>
-        </Link>
-        for a better web.
+        by &nbsp; <b> Heylix Technologies </b> &nbsp; for a better web.
       </MDBox>
       <MDBox
         component="ul"
@@ -99,7 +92,6 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
   links: [
     { href: "https://www.creative-tim.com/", name: "Creative Tim" },
     { href: "https://www.creative-tim.com/presentation", name: "About Us" },
@@ -110,7 +102,6 @@ Footer.defaultProps = {
 
 // Typechecking props for the Footer
 Footer.propTypes = {
-  company: PropTypes.objectOf(PropTypes.string),
   links: PropTypes.arrayOf(PropTypes.object),
 };
 

@@ -324,10 +324,18 @@ function Leads() {
               </Form.Group>
             </div>
             <div className="row mx-1">
-              <Button className="col-sm-1 ms-20 me-2 text-color-for-button" variant="contained" color="primary">
+              <Button
+                className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
+                variant="contained"
+                color="primary"
+              >
                 Save
               </Button>
-              <Button className="col-sm-1 ms-20 me-2" variant="contained" color="secondary">
+              <Button
+                className="col-sm-1 ms-20 me-2 text-white"
+                variant="contained"
+                color="secondary"
+              >
                 Cancel
               </Button>
             </div>
