@@ -57,7 +57,7 @@ function QuickLeadEntry() {
           </MDBox>
           <MDBox pt={3}>
             <Form>
-              <div className="row row-cols-4">
+              <div className="row row-cols-4 px-4">
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
                   <Form.Label>Campaign</Form.Label>
                   <Form.Select
@@ -279,7 +279,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
               </div>
-              <div className="row mx-1">
+              <div className="row mx-4 mt-4">
                 <Button
                   className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
                   variant="contained"

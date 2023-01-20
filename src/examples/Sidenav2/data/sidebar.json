@@ -34,15 +34,18 @@
               },
               {
                 "title": "Lead Assign",
-                "icon": "bi-info-circle-fill"
+                "icon": "bi-info-circle-fill",
+                "path": "/"
               },
               {
                 "title": "Lead Followup",
-                "icon": "bi-info-circle-fill"
+                "icon": "bi-info-circle-fill",
+                "path": "/"
               },
               {
                 "title": "Contact List",
-                "icon": "bi-info-circle-fill"
+                "icon": "bi-info-circle-fill",
+                "path": "/"
               }
             ]
           },

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 
 export default function SidebarItem({ item }) {
   const [open, setOpen] = useState(false);
@@ -16,9 +15,9 @@ export default function SidebarItem({ item }) {
             <i className="bi-chevron-down toggle-btn" onClick={() => setOpen(!open)}></i>
           </div>
           <div className="sidebar-content">
-            {item.childrens.map((child, index) => (
-              <SidebarItem key={index} item={child} />
-            ))}
+            {item.childrens.map((obj, i) => {
+              <SidebarItem item={obj} key={obj.title} />;
+            })}
           </div>
         </div>
       </>
@@ -32,7 +31,3 @@ export default function SidebarItem({ item }) {
     );
   }
 }
-
-SidebarItem.propTypes = {
-  children: PropTypes.node.isRequired,
-};

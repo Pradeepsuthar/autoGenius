@@ -319,15 +319,17 @@ function Leads() {
         </Form.Group>
       </div>
 
-      <div className="row mx-4 mt-4">
+      <div className="row mx-4 mt-3">
         <Button
           className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
           variant="contained"
           color="primary"
         >
+          <Icon className="mx-1">save</Icon>
           Save
         </Button>
         <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
+          <Icon className="mx-1">close</Icon>
           Cancel
         </Button>
       </div>
@@ -338,12 +340,8 @@ function Leads() {
     <Form>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Meeting</Form.Label>
-          <Switch
-            checked={state.checked}
-            onChange={handleChange}
-            inputProps={{ "aria-label": "controlled" }}
-          />
+          <Form.Label className="formLabel">Meeting</Form.Label> <br />
+          <Switch />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
           <Form.Label className="formLabel">No. of People</Form.Label>
@@ -374,15 +372,17 @@ function Leads() {
         </Form.Group>
       </div>
 
-      <div className="row mx-4 mt-4">
+      <div className="row mx-4 mt-3">
         <Button
           className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
           variant="contained"
           color="primary"
         >
+          <Icon className="mx-1">save</Icon>
           Save
         </Button>
         <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
+          <Icon className="mx-1">close</Icon>
           Cancel
         </Button>
       </div>
@@ -582,15 +582,17 @@ function Leads() {
         </Form.Group>
       </div>
 
-      <div className="row mx-4 mt-4">
+      <div className="row mx-4 mt-3">
         <Button
           className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
           variant="contained"
           color="primary"
         >
+          <Icon className="mx-1">save</Icon>
           Save
         </Button>
         <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
+          <Icon className="mx-1">close</Icon>
           Cancel
         </Button>
       </div>
@@ -625,7 +627,12 @@ function Leads() {
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
           <Form.Label className="formLabel">Followup Date</Form.Label>
-          <Form.Control name="followUpDate" onChange={handleChange} value={state.followUpDate} type="text" />
+          <Form.Control
+            name="followUpDate"
+            onChange={handleChange}
+            value={state.followUpDate}
+            type="text"
+          />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
           <Form.Label className="formLabel">Time</Form.Label>
@@ -633,15 +640,17 @@ function Leads() {
         </Form.Group>
       </div>
 
-      <div className="row mx-4 mt-4">
+      <div className="row mx-4 mt-3">
         <Button
           className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
           variant="contained"
           color="primary"
         >
+          <Icon className="mx-1">save</Icon>
           Save
         </Button>
         <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
+          <Icon className="mx-1">close</Icon>
           Cancel
         </Button>
       </div>
@@ -691,36 +700,17 @@ function Leads() {
                 <Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>
                   <Tab
                     label="Contact Information [ Customer ]"
-                    icon={
-                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
-                        home
-                      </Icon>
-                    }
+                    icon={<i className="bi bi-info-circle-fill mx-2 my-0"></i>}
                   />
                   <Tab
                     label="Other Info"
-                    icon={
-                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
-                        email
-                      </Icon>
-                    }
+                    icon={<i className="bi bi-plus-square-fill mx-2 my-0"></i>}
                   />
                   <Tab
                     label="Appointment Information"
-                    icon={
-                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
-                        settings
-                      </Icon>
-                    }
+                    icon={<i className="bi bi-info-calendar-fill mx-2 my-0"></i>}
                   />
-                  <Tab
-                    label="Vehicle Info"
-                    icon={
-                      <Icon fontSize="small" sx={{ mt: -0.25 }}>
-                        settings
-                      </Icon>
-                    }
-                  />
+                  <Tab label="Vehicle Info" icon={<i className="bi bi-car-front mx-2 my-0"></i>} />
                 </Tabs>
               </AppBar>
             </Grid>
