@@ -24,11 +24,12 @@
                   {
                     "title": "Quick Lead Entry",
                     "icon": "bi-info-circle-fill",
-                    "path": "/leads"
+                    "path": "/quickleadentry"
                   },
                   {
                     "title": "Lead Entry",
-                    "icon": "bi-info-circle-fill"
+                    "icon": "bi-info-circle-fill",
+                    "path": "/leads"
                   },
                   {
                     "title": "Lead Assign",

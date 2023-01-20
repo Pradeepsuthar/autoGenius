@@ -34,6 +34,7 @@ import { useMaterialUIController } from "context";
 import SideNav2 from "examples/Sidenav2";
 import Leads from "layouts/leads";
 import Dashboard from "layouts/dashboard";
+import QuickLeadEntry from "layouts/quickleadentry";
 
 export default function App() {
   const [controller] = useMaterialUIController();
@@ -60,6 +61,7 @@ export default function App() {
           <Routes>
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/leads" element={<Leads />} />
+            <Route exact path="/quickleadentry" element={<QuickLeadEntry />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
         </div>

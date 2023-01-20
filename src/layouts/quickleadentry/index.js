@@ -22,7 +22,7 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "@mui/material";
 
-function Leads() {
+function QuickLeadEntry() {
   const [state, setState] = useState({
     campaign: "",
     location: "",
@@ -50,7 +50,7 @@ function Leads() {
     });
   };
 
-  console.log(state);
+  console.log(state, "QuickLeadEntry");
 
   return (
     <DashboardLayout>
@@ -307,4 +307,4 @@ function Leads() {
   );
 }
 
-export default Leads;
+export default QuickLeadEntry;
