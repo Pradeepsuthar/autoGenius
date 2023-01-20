@@ -52,7 +52,6 @@
   left: 0;
 }
 
-
 .sidebar-icon-style {
   margin-left: 20px;
 }
@@ -140,4 +139,9 @@
 .sidebar-item.plain i {
   display: inline-block;
   width: 1.7em;
+}
+
+.sidebar-item:focus {
+  background: #fff;
+  color: #222;
 }

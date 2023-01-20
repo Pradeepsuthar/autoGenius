@@ -59,7 +59,8 @@ export default function App() {
         <SideNav2 />
         <div className="mainBody">
           <Routes>
-            <Route exact path="/" element={<Dashboard />} />
+            <Route exact path="/" element={<Navigate to="/dashboard" />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/leads" element={<Leads />} />
             <Route exact path="/quickleadentry" element={<QuickLeadEntry />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />

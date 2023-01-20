@@ -2,9 +2,9 @@
   "name": "auto-genius",
   "version": "2.1.0",
   "private": true,
-  "author": "Creative Tim",
+  "author": "Pradeep Suthar",
   "license": "See license in https://www.creative-tim.com/license",
-  "description": "React version of Material Dashboard 2 by Creative Tim",
+  "description": "A complete software for automobile showroom and workshop management The utmost preferred brand in the Automobile industry",
   "bugs": {
     "url": "https://github.com/Pradeepsuthar/autoGenius/issues"
   },
@@ -62,5 +62,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/build"
+  "homepage": "/"
 }
