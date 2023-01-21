@@ -24,27 +24,27 @@
             "childrens": [
               {
                 "title": "Quick Lead Entry",
-                "icon": "bi-info-circle-fill",
+                "icon": "bi-chevron-right",
                 "path": "/quickleadentry"
               },
               {
                 "title": "Lead Entry",
-                "icon": "bi-info-circle-fill",
+                "icon": "bi-chevron-right",
                 "path": "/leads"
               },
               {
                 "title": "Lead Assign",
-                "icon": "bi-info-circle-fill",
+                "icon": "bi-chevron-right",
                 "path": "/"
               },
               {
                 "title": "Lead Followup",
-                "icon": "bi-info-circle-fill",
+                "icon": "bi-chevron-right",
                 "path": "/"
               },
               {
                 "title": "Contact List",
-                "icon": "bi-info-circle-fill",
+                "icon": "bi-chevron-right",
                 "path": "/"
               }
             ]

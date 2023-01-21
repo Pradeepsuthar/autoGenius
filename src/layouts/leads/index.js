@@ -44,7 +44,6 @@ function Leads() {
   const handleSetTabValue = (event, newValue) => setTabValue(newValue);
 
   const [tabValue, setTabValue] = useState(0);
-  console.log(tabValue, "Value");
 
   useEffect(() => {
     // A function that sets the orientation state of the tabs.

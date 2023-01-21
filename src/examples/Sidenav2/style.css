@@ -97,15 +97,15 @@
   border-radius: 5px;
   margin-block: 8px;
   padding-block: 20px;
-}
-.sidebar-item:hover {
   background-color: #ffffff1a;
 }
+/* .sidebar-item:hover {} */
 
 .sidebar-title {
   display: flex;
   font-size: 0.96em;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .sidebar-title span i {
