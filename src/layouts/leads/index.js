@@ -7,8 +7,15 @@ import { AppBar, Button, Grid, Icon, Switch, Tab, Tabs } from "@mui/material";
 import MDTypography from "components/MDTypography";
 
 import "./style.css";
+import { getExecutive } from "api";
 
 function Leads() {
+  const [executiveData, setExecutiveData] = useState();
+  useEffect(() => {
+    setExecutiveData(getExecutive());
+  });
+  console.log(executiveData,"Executive Data");
+
   const [state, setState] = useState({
     enquiryDate: "",
     location: "",
