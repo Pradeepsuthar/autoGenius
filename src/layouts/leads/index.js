@@ -85,16 +85,12 @@ function Leads() {
   const [tabValue, setTabValue] = useState(0);
 
   useEffect(() => {
-    // A function that sets the orientation state of the tabs.
     function handleTabsOrientation() {
       return window.innerWidth < 576
         ? setTabsOrientation("vertical")
         : setTabsOrientation("horizontal");
     }
 
-    /** 
-     The event listener that's calling the handleTabsOrientation function when resizing the window.
-    */
     window.addEventListener("resize", handleTabsOrientation);
 
     // Call the handleTabsOrientation function to set the state with the initial value.
@@ -220,7 +216,6 @@ function Leads() {
             className="required-bullet"
             name="name"
             onChange={handleChange}
-           
             type="text"
             placeholder="Enter Name"
           />
@@ -607,15 +602,15 @@ function Leads() {
           </Form.Select>
         </Form.Group>
       </div>
-      <div className="row mx-4 mt-3 grpAdd">
+      <div className="row mx-4 my-3">
         <Button onClick={addHandler} className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
-          <Icon className="mx-1">save</Icon>
+          <Icon>add</Icon>
           Add
         </Button>
       </div>
 
       <div className="grpTable">
-        <table className=" table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Product Name</th>

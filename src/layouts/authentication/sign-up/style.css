@@ -1,0 +1,12 @@
+.bg-gradient {
+  background: rgb(2, 205, 201) !important;
+  background: linear-gradient(
+    288deg,
+    rgba(2, 205, 201, 1) 0%,
+    rgba(8, 149, 146, 1) 33%,
+    rgba(3, 97, 95, 1) 100%
+  ) !important;
+}
+.btn-theme:hover {
+  background: rgb(4, 151, 149) !important;
+}

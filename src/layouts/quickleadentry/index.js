@@ -1,7 +1,7 @@
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MDBox from "components/MDBox";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button, Card, Icon } from "@mui/material";
 import MDTypography from "components/MDTypography";
@@ -34,8 +34,6 @@ function QuickLeadEntry() {
       [e.target.name]: e.target.value,
     });
   };
-
-  console.log(state, "QuickLeadEntry");
 
   return (
     <DashboardLayout>

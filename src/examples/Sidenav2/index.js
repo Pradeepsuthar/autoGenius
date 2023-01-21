@@ -2,10 +2,8 @@ import React from "react";
 import SidebarItem from "./SidebarItem";
 import "./style.css";
 import items from "./data/sidebar.json";
-
 import Logo from "../../assets/images/logos/logo-large.png";
 
-// { color, brand, brandName, routes, onMouseEnter, onMouseLeave }
 function SideNav2() {
   return (
     <div className="sidebar-container">
