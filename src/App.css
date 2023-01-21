@@ -4,3 +4,6 @@
 .mainBody {
   width: 100%;
 }
+.required-bullet {
+  border-left: 2px solid #ff0000;
+}

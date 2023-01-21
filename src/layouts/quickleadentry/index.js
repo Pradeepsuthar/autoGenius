@@ -88,10 +88,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Name <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Name</Form.Label>
                   <Form.Control
+                    className="required-bullet"
                     name="name"
                     onChange={handleChange}
                     value={state.name}
@@ -100,10 +99,9 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Mobile No. <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Mobile No.</Form.Label>
                   <Form.Control
+                    className="required-bullet"
                     name="mobileNo"
                     onChange={handleChange}
                     value={state.mobileNo}
@@ -112,10 +110,9 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Lead Nature <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Lead Nature</Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="leadNature"
                     onChange={handleChange}
                     value={state.leadNature}
@@ -128,10 +125,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Lead Source <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Lead Source </Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="leadSource"
                     onChange={handleChange}
                     value={state.leadSource}
@@ -158,10 +154,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Product Name <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Product Name</Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="productName"
                     onChange={handleChange}
                     value={state.productName}
@@ -174,10 +169,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Test Ride <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Test Ride</Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="testRide"
                     onChange={handleChange}
                     value={state.testRide}
@@ -190,10 +184,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Expected Period of Purchase <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Expected Period of Purchase </Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="expectedPeriodOfPurchase"
                     onChange={handleChange}
                     value={state.expectedPeriodOfPurchase}
@@ -206,10 +199,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Lead Followup Status <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Lead Followup Status </Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="leadFollowupStatus"
                     onChange={handleChange}
                     value={state.leadFollowupStatus}
@@ -222,10 +214,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    Next Followup Date <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">Next Followup Date </Form.Label>
                   <Form.Control
+                    className="required-bullet"
                     name="nextFollowupDate"
                     value={state.nextFollowupDate}
                     onChange={handleChange}
@@ -247,10 +238,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    State <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">State </Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="state"
                     onChange={handleChange}
                     value={state.state}
@@ -263,10 +253,9 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">
-                    City <span className="text-danger">*</span>
-                  </Form.Label>
+                  <Form.Label className="formLabel">City </Form.Label>
                   <Form.Select
+                    className="required-bullet"
                     name="city"
                     onChange={handleChange}
                     value={state.city}

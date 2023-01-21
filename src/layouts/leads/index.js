@@ -14,13 +14,21 @@ function Leads() {
   const [executiveData, setExecutiveData] = useState();
   useEffect(() => {
     setExecutiveData(getExecutive());
+    console.log(executiveData, "Executive Data");
   }, []);
-  console.log(executiveData, "Executive Data");
+
+  const [tableData, setTableData] = useState([]);
+
+  const addHandler = () => {
+    let initalData = tableData;
+    initalData.push(state);
+    setTableData(initalData);
+    console.log(initalData, "initial data");
+  };
 
   const [state, setState] = useState({
     enquiryDate: "",
     location: "",
-    executive: "",
     source: "",
     subSource: "",
     campaign: "",
@@ -38,6 +46,29 @@ function Leads() {
     buyingFor: "",
     email: "",
     leadFollowupStatus: "",
+    meeting: "",
+    noOfPeople: "",
+    remarks: "",
+    expectedPeriodOfPurchase: "",
+    leadNature: "",
+    followUpPlace: "",
+    followUpDate: "",
+    time: "",
+    productName: "",
+    productNameVehicle: "",
+    modelDescription: "",
+    color: "",
+    varient: "",
+    priceOn: "",
+    onRoadPrice: "",
+    brandName: "",
+    presentProduct: "",
+    regNo: "",
+    mfgYear: "",
+    testRide: "",
+    exptCost: "",
+    evalCost: "",
+    onCash: "",
   });
 
   const handleChange = (e) => {
@@ -73,6 +104,19 @@ function Leads() {
     return () => window.removeEventListener("resize", handleTabsOrientation);
   }, [tabsOrientation]);
 
+  const commonFormButtons = (
+    <div className="row mx-4 mt-3 grp">
+      <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
+        <Icon className="mx-1">save</Icon>
+        Save
+      </Button>
+      <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
+        <Icon className="mx-1">close</Icon>
+        Cancel
+      </Button>
+    </div>
+  );
+
   const contactInfo = (
     <Form>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
@@ -100,17 +144,14 @@ function Leads() {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Executive <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Product Name</Form.Label>
           <Form.Select
-            name="executive"
+            className="required-bullet"
+            name="productNameVehicle"
             onChange={handleChange}
-            value={state.executive}
-            aria-label="Default select example"
           >
             <option>Digvijay Singh</option>
-            {dropdownData.executiveDropdown.map((item) => {
+            {dropdownData.productNameVehicleDropdown.map((item) => {
               return <option value={item.value}>{item.data}</option>;
             })}
           </Form.Select>
@@ -174,22 +215,20 @@ function Leads() {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Name <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Name</Form.Label>
           <Form.Control
+            className="required-bullet"
             name="name"
             onChange={handleChange}
-            value={state.name}
+           
             type="text"
             placeholder="Enter Name"
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Mobile No. <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Mobile No.</Form.Label>
           <Form.Control
+            className="required-bullet"
             name="mobileNo"
             onChange={handleChange}
             value={state.mobileNo}
@@ -222,10 +261,9 @@ function Leads() {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Occupation <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Occupation</Form.Label>
           <Form.Select
+            className="required-bullet"
             name="occupation"
             onChange={handleChange}
             value={state.occupation}
@@ -238,10 +276,9 @@ function Leads() {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Address <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Address</Form.Label>
           <Form.Control
+            className="required-bullet"
             name="address"
             onChange={handleChange}
             value={state.address}
@@ -250,10 +287,9 @@ function Leads() {
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            State <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">State</Form.Label>
           <Form.Select
+            className="required-bullet"
             name="state"
             onChange={handleChange}
             value={state.state}
@@ -267,9 +303,14 @@ function Leads() {
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
           <Form.Label className="formLabel" value={state.city}>
-            City <span className="text-danger">*</span>
+            City{" "}
           </Form.Label>
-          <Form.Select name="city" onChange={handleChange} aria-label="Default select example">
+          <Form.Select
+            className="required-bullet"
+            name="city"
+            onChange={handleChange}
+            aria-label="Default select example"
+          >
             <option>Deoil (south )</option>
             {dropdownData.cityDropdown.map((item) => {
               return <option value={item.value}>{item.data}</option>;
@@ -289,9 +330,10 @@ function Leads() {
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
           <Form.Label className="formLabel" value={state.pincode}>
-            Pincode <span className="text-danger">*</span>
+            Pincode
           </Form.Label>
           <Form.Control
+            className="required-bullet"
             name="pincode"
             onChange={handleChange}
             type="text"
@@ -338,16 +380,7 @@ function Leads() {
         </Form.Group>
       </div>
 
-      <div className="row mx-4 mt-3">
-        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
-          <Icon className="mx-1">save</Icon>
-          Save
-        </Button>
-        <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
-          <Icon className="mx-1">close</Icon>
-          Cancel
-        </Button>
-      </div>
+      {commonFormButtons}
     </Form>
   );
 
@@ -372,10 +405,9 @@ function Leads() {
           <Form.Control name="remarks" onChange={handleChange} value={state.remarks} type="text" />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            The expected period of Purchase <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">The expected period of Purchase</Form.Label>
           <Form.Select
+            className="required-bullet"
             name="customerType"
             onChange={handleChange}
             value={state.customerType}
@@ -389,16 +421,7 @@ function Leads() {
         </Form.Group>
       </div>
 
-      <div className="row mx-4 mt-3">
-        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
-          <Icon className="mx-1">save</Icon>
-          Save
-        </Button>
-        <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
-          <Icon className="mx-1">close</Icon>
-          Cancel
-        </Button>
-      </div>
+      {commonFormButtons}
     </Form>
   );
 
@@ -406,31 +429,15 @@ function Leads() {
     <Form>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Product Name <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Product Name</Form.Label>
           <Form.Select
             name="productName"
             onChange={handleChange}
             value={state.productName}
             aria-label="Default select example"
           >
-            <option>ACCENT</option>
-            {dropdownData.productNameDropdown.map((item) => {
-              return <option value={item.value}>{item.data}</option>;
-            })}{" "}
-          </Form.Select>
-        </Form.Group>
-        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Executive</Form.Label>
-          <Form.Select
-            name="executive"
-            onChange={handleChange}
-            value={state.executive}
-            aria-label="Default select example"
-          >
             <option>Digvijay Singh</option>
-            {dropdownData.executiveDropdown.map((item) => {
+            {dropdownData.productNameDropdown.map((item) => {
               return <option value={item.value}>{item.data}</option>;
             })}{" "}
           </Form.Select>
@@ -494,10 +501,9 @@ function Leads() {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            On Road Price <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">On Road Price</Form.Label>
           <Form.Select
+            className="required-bullet"
             name="onRoadPrice"
             onChange={handleChange}
             value={state.onRoadPrice}
@@ -587,10 +593,9 @@ function Leads() {
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            On Cash <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">On Cash</Form.Label>
           <Form.Select
+            className="required-bullet"
             name="onCash"
             onChange={handleChange}
             value={state.onCash}
@@ -602,17 +607,62 @@ function Leads() {
           </Form.Select>
         </Form.Group>
       </div>
-
-      <div className="row mx-4 mt-3 grp">
-        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
+      <div className="row mx-4 mt-3 grpAdd">
+        <Button onClick={addHandler} className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
           <Icon className="mx-1">save</Icon>
-          Save
-        </Button>
-        <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
-          <Icon className="mx-1">close</Icon>
-          Cancel
+          Add
         </Button>
       </div>
+
+      <div className="grpTable">
+        <table className=" table">
+          <thead>
+            <tr>
+              <th scope="col">Product Name</th>
+
+              <th scope="col">Model Description</th>
+              <th scope="col">Color</th>
+              <th scope="col">Varient</th>
+              <th scope="col">Price On</th>
+              <th scope="col">On Road Price</th>
+              <th scope="col">Brand Name</th>
+              <th scope="col">Present Product</th>
+              <th scope="col">Mobile No.</th>
+              <th scope="col">Reg No</th>
+              <th scope="col">MFG Year</th>
+              <th scope="col">Test Ride</th>
+              <th scope="col">Expt Cost</th>
+              <th scope="col">Eval. Cost</th>
+              <th scope="col">On Cash</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((data) => {
+              return (
+                <tr>
+                  <td>{data.productNameVehicle}</td>
+                  <td>{data.modelDescription}</td>
+                  <td>{data.color}</td>
+                  <td>{data.varient}</td>
+                  <td>{data.priceOn}</td>
+                  <td>{data.onRoadPrice}</td>
+                  <td>{data.brandName}</td>
+                  <td>{data.presentProduct}</td>
+                  <td>{data.mobileNumber}</td>
+                  <td>{data.regNo}</td>
+                  <td>{data.mfgYear}</td>
+                  <td>{data.testRide}</td>
+                  <td>{data.exptCost}</td>
+                  <td>{data.evalCost}</td>
+                  <td>{data.onCash}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {commonFormButtons}
     </Form>
   );
 
@@ -620,10 +670,9 @@ function Leads() {
     <Form>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Lead Nature <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Lead Nature</Form.Label>
           <Form.Select
+            className="required-bullet"
             name="customerType"
             onChange={handleChange}
             value={state.leadNature}
@@ -645,10 +694,9 @@ function Leads() {
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">
-            Followup Date <span className="text-danger">*</span>
-          </Form.Label>
+          <Form.Label className="formLabel">Followup Date</Form.Label>
           <Form.Control
+            className="required-bullet"
             name="followUpDate"
             onChange={handleChange}
             value={state.followUpDate}
@@ -660,17 +708,7 @@ function Leads() {
           <Form.Control name="time" onChange={handleChange} value={state.time} type="time" />
         </Form.Group>
       </div>
-
-      <div className="row mx-4 mt-3">
-        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
-          <Icon className="mx-1">save</Icon>
-          Save
-        </Button>
-        <Button className="col-sm-1 ms-20 me-2 text-white" variant="contained" color="secondary">
-          <Icon className="mx-1">close</Icon>
-          Cancel
-        </Button>
-      </div>
+      {commonFormButtons}
     </Form>
   );
 

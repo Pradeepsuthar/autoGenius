@@ -9,8 +9,7 @@
 .bgBlue {
   background: rgb(2, 205, 201) !important;
   background: linear-gradient(
-    288deg,
-    rgba(2, 205, 201, 1) 0%,
+    288deg rgba(2, 205, 201, 1) 0%,
     rgba(8, 149, 146, 1) 33%,
     rgba(3, 97, 95, 1) 100%
   ) !important;
@@ -55,4 +54,17 @@
   background-color: #fafafa !important;
   display: flex;
   justify-content: end;
+}
+
+.grpAdd {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #dedede;
+  background-color: #fafafa !important;
+  display: flex;
+  justify-content: center;
+}
+.grpTable {
+  padding-inline: 24px;
+  font-size: 10px;
 }

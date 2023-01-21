@@ -9,7 +9,7 @@ export const dropdownData = {
       data: "ABARTH PUNTO",
     },
   ],
-  executiveDropdown: [
+  productNameVehicleDropdown: [
     {
       value: "1",
       data: "A Star",
