@@ -3,11 +3,10 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MDBox from "components/MDBox";
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import { Button, Card } from "@mui/material";
+import { Button, Card, Icon } from "@mui/material";
 import MDTypography from "components/MDTypography";
 
 function QuickLeadEntry() {
-
   const [state, setState] = useState({
     campaign: "",
     location: "",
@@ -58,9 +57,9 @@ function QuickLeadEntry() {
           </MDBox>
           <MDBox pt={3}>
             <Form>
-              <div className="row row-cols-4">
+              <div className="row row-cols-4 px-4">
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Campaign</Form.Label>
+                  <Form.Label className="formLabel">Campaign</Form.Label>
                   <Form.Select
                     name="campaign"
                     onChange={handleChange}
@@ -74,7 +73,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Location</Form.Label>
+                  <Form.Label className="formLabel">Location</Form.Label>
                   <Form.Select
                     name="location"
                     onChange={handleChange}
@@ -88,7 +87,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label className="formLabel">Name</Form.Label>
                   <Form.Control
                     name="name"
                     onChange={handleChange}
@@ -98,7 +97,7 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Mobile No.</Form.Label>
+                  <Form.Label className="formLabel">Mobile No.</Form.Label>
                   <Form.Control
                     name="mobileNo"
                     onChange={handleChange}
@@ -108,7 +107,7 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Lead Nature</Form.Label>
+                  <Form.Label className="formLabel">Lead Nature</Form.Label>
                   <Form.Select
                     name="leadNature"
                     onChange={handleChange}
@@ -122,7 +121,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Lead Source</Form.Label>
+                  <Form.Label className="formLabel">Lead Source</Form.Label>
                   <Form.Select
                     name="leadSource"
                     onChange={handleChange}
@@ -136,7 +135,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Lead Sub Source</Form.Label>
+                  <Form.Label className="formLabel">Lead Sub Source</Form.Label>
                   <Form.Select
                     name="leadSubSource"
                     onChange={handleChange}
@@ -150,7 +149,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Product Name</Form.Label>
+                  <Form.Label className="formLabel">Product Name</Form.Label>
                   <Form.Select
                     name="productName"
                     onChange={handleChange}
@@ -164,7 +163,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Test Ride</Form.Label>
+                  <Form.Label className="formLabel">Test Ride</Form.Label>
                   <Form.Select
                     name="testRide"
                     onChange={handleChange}
@@ -178,7 +177,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Expected Period of Purchase</Form.Label>
+                  <Form.Label className="formLabel">Expected Period of Purchase</Form.Label>
                   <Form.Select
                     name="expectedPeriodOfPurchase"
                     onChange={handleChange}
@@ -192,7 +191,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Lead Followup Status</Form.Label>
+                  <Form.Label className="formLabel">Lead Followup Status</Form.Label>
                   <Form.Select
                     name="leadFollowupStatus"
                     onChange={handleChange}
@@ -206,7 +205,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Next Followup Date</Form.Label>
+                  <Form.Label className="formLabel">Next Followup Date</Form.Label>
                   <Form.Control
                     name="nextFollowupDate"
                     value={state.nextFollowupDate}
@@ -215,7 +214,7 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Executive</Form.Label>
+                  <Form.Label className="formLabel">Executive</Form.Label>
                   <Form.Select
                     name="executive"
                     onChange={handleChange}
@@ -229,7 +228,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>State</Form.Label>
+                  <Form.Label className="formLabel">State</Form.Label>
                   <Form.Select
                     name="state"
                     onChange={handleChange}
@@ -243,7 +242,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>City</Form.Label>
+                  <Form.Label className="formLabel">City</Form.Label>
                   <Form.Select
                     name="city"
                     onChange={handleChange}
@@ -257,7 +256,7 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Remark</Form.Label>
+                  <Form.Label className="formLabel">Remark</Form.Label>
                   <Form.Control
                     name="remark"
                     value={state.remark}
@@ -266,7 +265,7 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Lead Type</Form.Label>
+                  <Form.Label className="formLabel">Lead Type</Form.Label>
                   <Form.Select
                     name="leadType"
                     onChange={handleChange}
@@ -280,12 +279,13 @@ function QuickLeadEntry() {
                   </Form.Select>
                 </Form.Group>
               </div>
-              <div className="row mx-1">
+              <div className="row mx-4 mt-3">
                 <Button
                   className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
                   variant="contained"
                   color="primary"
                 >
+                  <Icon className="mx-1">save</Icon>
                   Save
                 </Button>
                 <Button
@@ -293,6 +293,7 @@ function QuickLeadEntry() {
                   variant="contained"
                   color="secondary"
                 >
+                  <Icon className="mx-1">close</Icon>
                   Cancel
                 </Button>
               </div>
