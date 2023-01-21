@@ -24,7 +24,13 @@
   height: 97%;
   overflow: auto;
   border-radius: 10px;
-  background: #134ab0;
+  background: rgb(2, 205, 201);
+  background: linear-gradient(
+    288deg,
+    rgba(2, 205, 201, 1) 0%,
+    rgba(8, 149, 146, 1) 33%,
+    rgba(3, 97, 95, 1) 100%
+  );
 }
 
 .sidebar .sidebar-header {

@@ -339,11 +339,7 @@ function Leads() {
       </div>
 
       <div className="row mx-4 mt-3">
-        <Button
-          className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
-          variant="contained"
-          color="primary"
-        >
+        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
           <Icon className="mx-1">save</Icon>
           Save
         </Button>
@@ -394,11 +390,7 @@ function Leads() {
       </div>
 
       <div className="row mx-4 mt-3">
-        <Button
-          className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
-          variant="contained"
-          color="primary"
-        >
+        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
           <Icon className="mx-1">save</Icon>
           Save
         </Button>
@@ -612,11 +604,7 @@ function Leads() {
       </div>
 
       <div className="row mx-4 mt-3">
-        <Button
-          className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
-          variant="contained"
-          color="primary"
-        >
+        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
           <Icon className="mx-1">save</Icon>
           Save
         </Button>
@@ -674,11 +662,7 @@ function Leads() {
       </div>
 
       <div className="row mx-4 mt-3">
-        <Button
-          className="col-sm-1 ms-20 me-2 text-color-for-button text-white"
-          variant="contained"
-          color="primary"
-        >
+        <Button className="col-sm-1 ms-20 me-2 btn-theme" variant="contained">
           <Icon className="mx-1">save</Icon>
           Save
         </Button>
@@ -729,21 +713,28 @@ function Leads() {
 
           <div className="mx-3 mt-4">
             <Grid item>
-              <AppBar position="static">
+              <AppBar position="static" className="tabs">
                 <Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>
                   <Tab
+                    className="tab"
                     label="Contact Information [ Customer ]"
                     icon={<i className="bi bi-info-circle-fill mx-2 my-0"></i>}
                   />
                   <Tab
+                    className="tab"
                     label="Other Info"
                     icon={<i className="bi bi-plus-square-fill mx-2 my-0"></i>}
                   />
                   <Tab
+                    className="tab"
                     label="Appointment Information"
                     icon={<i className="bi bi-info-calendar-fill mx-2 my-0"></i>}
                   />
-                  <Tab label="Vehicle Info" icon={<i className="bi bi-car-front mx-2 my-0"></i>} />
+                  <Tab
+                    className="tab"
+                    label="Vehicle Info"
+                    icon={<i className="bi bi-car-front mx-2 my-0"></i>}
+                  />
                 </Tabs>
               </AppBar>
             </Grid>
