@@ -15,7 +15,7 @@ function SideNav2() {
             <img src={Logo} width="120px" />
           </h1>
         </div>
-        <div className="sidebar-buttons">
+        <div className="sidebar-body">
           {items && items.map((item) => <SidebarItem item={item} />)}
         </div>
       </div>

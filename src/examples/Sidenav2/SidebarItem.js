@@ -25,9 +25,9 @@ export default function SidebarItem({ item }) {
     );
   } else {
     return (
-      <NavLink to={item.path || "#"} className="sidebar-item plain">
+      <NavLink to={item.path || "#"} className="sidebar-item">
         {item.icon && <i className={`sidebar-icon-style ${item.icon}`}></i>}
-        <span>{item.title}</span>
+        <span className="mx-3">{item.title}</span>
       </NavLink>
     );
   }

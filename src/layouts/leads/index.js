@@ -718,9 +718,9 @@ function Leads() {
             py={3}
             px={2}
             variant="gradient"
-            bgColor="dark"
             borderRadius="lg"
             coloredShadow="info"
+            className="bgBlue"
           >
             <MDTypography variant="h6" color="white">
               Lead Entry

@@ -48,7 +48,7 @@ function QuickLeadEntry() {
             py={3}
             px={2}
             variant="gradient"
-            bgColor="dark"
+            className="bgBlue"
             borderRadius="lg"
             coloredShadow="info"
           >

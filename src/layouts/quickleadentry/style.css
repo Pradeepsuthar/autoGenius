@@ -5,3 +5,7 @@
 .formContainer {
   padding: 0 20px;
 }
+
+.bgBlue {
+  background: #0052cc !important;
+}
