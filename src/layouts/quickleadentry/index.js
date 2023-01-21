@@ -8,8 +8,6 @@ import MDTypography from "components/MDTypography";
 import { dropdownData } from "./data/dropdownData";
 
 function QuickLeadEntry() {
- 
-
   const [state, setState] = useState({
     campaign: "",
     location: "",
