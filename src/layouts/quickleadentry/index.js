@@ -5,8 +5,11 @@ import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button, Card, Icon } from "@mui/material";
 import MDTypography from "components/MDTypography";
+import { dropdownData } from "./data/dropdownData";
 
 function QuickLeadEntry() {
+ 
+
   const [state, setState] = useState({
     campaign: "",
     location: "",
@@ -67,9 +70,9 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>~Select Campaign~</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.campaignDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -81,13 +84,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>Showroom</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.locationDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Name</Form.Label>
+                  <Form.Label className="formLabel">
+                    Name <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Control
                     name="name"
                     onChange={handleChange}
@@ -97,7 +102,9 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Mobile No.</Form.Label>
+                  <Form.Label className="formLabel">
+                    Mobile No. <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Control
                     name="mobileNo"
                     onChange={handleChange}
@@ -107,7 +114,9 @@ function QuickLeadEntry() {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Lead Nature</Form.Label>
+                  <Form.Label className="formLabel">
+                    Lead Nature <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="leadNature"
                     onChange={handleChange}
@@ -115,13 +124,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>... Choose Lead Nature ...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.leadNatureDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Lead Source</Form.Label>
+                  <Form.Label className="formLabel">
+                    Lead Source <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="leadSource"
                     onChange={handleChange}
@@ -129,9 +140,9 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>... Choose Lead Source ...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.leadSourceDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -143,13 +154,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>... Choose Lead Sub Source ...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.leadSubSourceDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Product Name</Form.Label>
+                  <Form.Label className="formLabel">
+                    Product Name <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="productName"
                     onChange={handleChange}
@@ -157,13 +170,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>... Choose Product Name ...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.productDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Test Ride</Form.Label>
+                  <Form.Label className="formLabel">
+                    Test Ride <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="testRide"
                     onChange={handleChange}
@@ -171,13 +186,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>... Please Select Ride ...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.testRideDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Expected Period of Purchase</Form.Label>
+                  <Form.Label className="formLabel">
+                    Expected Period of Purchase <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="expectedPeriodOfPurchase"
                     onChange={handleChange}
@@ -185,13 +202,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>... Please Select ...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.expectedPeriodOfPurchaseDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Lead Followup Status</Form.Label>
+                  <Form.Label className="formLabel">
+                    Lead Followup Status <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="leadFollowupStatus"
                     onChange={handleChange}
@@ -199,13 +218,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>~Select Status~</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.leadFollowupStatusDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">Next Followup Date</Form.Label>
+                  <Form.Label className="formLabel">
+                    Next Followup Date <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Control
                     name="nextFollowupDate"
                     value={state.nextFollowupDate}
@@ -222,13 +243,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>~Choose Executive~</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.executiveDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">State</Form.Label>
+                  <Form.Label className="formLabel">
+                    State <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="state"
                     onChange={handleChange}
@@ -236,13 +259,15 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>DELHI</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.stateDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-                  <Form.Label className="formLabel">City</Form.Label>
+                  <Form.Label className="formLabel">
+                    City <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Select
                     name="city"
                     onChange={handleChange}
@@ -250,9 +275,9 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>New Delhi</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.stateDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -273,9 +298,9 @@ function QuickLeadEntry() {
                     aria-label="Default select example"
                   >
                     <option>Sale</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {dropdownData.leadTypeDropdown.map((item) => {
+                      return <option value={item.value}>{item.data}</option>;
+                    })}
                   </Form.Select>
                 </Form.Group>
               </div>

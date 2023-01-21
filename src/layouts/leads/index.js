@@ -8,13 +8,14 @@ import MDTypography from "components/MDTypography";
 
 import "./style.css";
 import { getExecutive } from "api";
+import { dropdownData } from "./data/dropDownData";
 
 function Leads() {
   const [executiveData, setExecutiveData] = useState();
   useEffect(() => {
     setExecutiveData(getExecutive());
-  },[]);
-  console.log(executiveData,"Executive Data");
+  }, []);
+  console.log(executiveData, "Executive Data");
 
   const [state, setState] = useState({
     enquiryDate: "",
@@ -93,13 +94,15 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Showroom</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.locationDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Executive</Form.Label>
+          <Form.Label className="formLabel">
+            Executive <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="executive"
             onChange={handleChange}
@@ -107,9 +110,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Digvijay Singh</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.executiveDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -121,9 +124,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Walk In</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.sourceDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -136,9 +139,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>{"<Choose Source>"}</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.subSourceDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -165,13 +168,15 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Sale</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.leadTypeDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Name</Form.Label>
+          <Form.Label className="formLabel">
+            Name <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Control
             name="name"
             onChange={handleChange}
@@ -181,7 +186,9 @@ function Leads() {
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Mobile No.</Form.Label>
+          <Form.Label className="formLabel">
+            Mobile No. <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Control
             name="mobileNo"
             onChange={handleChange}
@@ -209,13 +216,15 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Individual</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.customerTypeDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Occupation</Form.Label>
+          <Form.Label className="formLabel">
+            Occupation <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="occupation"
             onChange={handleChange}
@@ -223,13 +232,15 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Businesses</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.occupationDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Address</Form.Label>
+          <Form.Label className="formLabel">
+            Address <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Control
             name="address"
             onChange={handleChange}
@@ -239,7 +250,9 @@ function Leads() {
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">State</Form.Label>
+          <Form.Label className="formLabel">
+            State <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="state"
             onChange={handleChange}
@@ -247,20 +260,20 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>DELHI</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.stateDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
           <Form.Label className="formLabel" value={state.city}>
-            City
+            City <span className="text-danger">*</span>
           </Form.Label>
           <Form.Select name="city" onChange={handleChange} aria-label="Default select example">
             <option>Deoil (south )</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.cityDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -269,14 +282,14 @@ function Leads() {
           </Form.Label>
           <Form.Select name="cityArea" onChange={handleChange} aria-label="Default select example">
             <option>~Select CityArea~</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.cityAreaDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
           <Form.Label className="formLabel" value={state.pincode}>
-            Pincode
+            Pincode <span className="text-danger">*</span>
           </Form.Label>
           <Form.Control
             name="pincode"
@@ -294,9 +307,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Brother</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.buyingForDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -318,9 +331,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>~Select Status~</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.leadFollowupStatusDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
       </div>
@@ -363,7 +376,9 @@ function Leads() {
           <Form.Control name="remarks" onChange={handleChange} value={state.remarks} type="text" />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">The expected period of Purchase</Form.Label>
+          <Form.Label className="formLabel">
+            The expected period of Purchase <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="customerType"
             onChange={handleChange}
@@ -371,9 +386,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>With in a week</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.expectedPeriodOfPurchaseDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
       </div>
@@ -399,7 +414,9 @@ function Leads() {
     <Form>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Product Name</Form.Label>
+          <Form.Label className="formLabel">
+            Product Name <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="productName"
             onChange={handleChange}
@@ -407,9 +424,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>ACCENT</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.productNameDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -421,9 +438,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Digvijay Singh</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.executiveDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -435,9 +452,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>Walk In</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.modelDescriptionDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -465,9 +482,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>~Select~</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.varientDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -479,13 +496,15 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>onRoad</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.priceOnDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">On Road Price</Form.Label>
+          <Form.Label className="formLabel">
+            On Road Price <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="onRoadPrice"
             onChange={handleChange}
@@ -493,9 +512,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>100</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.onRoadPriceDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -507,9 +526,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>~Select~</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.brandNameDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -521,9 +540,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option></option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.presentProductDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -552,8 +571,9 @@ function Leads() {
             value={state.customerType}
             aria-label="Default select example"
           >
-            <option value="1">Yes</option>
-            <option value="2">No</option>
+            {dropdownData.customerTypeDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -575,15 +595,18 @@ function Leads() {
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">On Cash</Form.Label>
+          <Form.Label className="formLabel">
+            On Cash <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="onCash"
             onChange={handleChange}
             value={state.onCash}
             aria-label="Default select example"
           >
-            <option value="1">Yes</option>
-            <option value="2">No</option>
+            {dropdownData.onCashDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
       </div>
@@ -609,7 +632,9 @@ function Leads() {
     <Form>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Lead Nature</Form.Label>
+          <Form.Label className="formLabel">
+            Lead Nature <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Select
             name="customerType"
             onChange={handleChange}
@@ -617,9 +642,9 @@ function Leads() {
             aria-label="Default select example"
           >
             <option>{"<Choost Nature>"}</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {dropdownData.leadNatureDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })}{" "}
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
@@ -632,7 +657,9 @@ function Leads() {
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Followup Date</Form.Label>
+          <Form.Label className="formLabel">
+            Followup Date <span className="text-danger">*</span>
+          </Form.Label>
           <Form.Control
             name="followUpDate"
             onChange={handleChange}
