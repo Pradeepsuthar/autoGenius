@@ -8,10 +8,6 @@ import MDTypography from "components/MDTypography";
 
 function QuickLeadEntry() {
 
-  useEffect(()=>{
-    getE
-  })
-
   const [state, setState] = useState({
     campaign: "",
     location: "",
