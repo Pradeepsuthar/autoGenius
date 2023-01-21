@@ -13,7 +13,7 @@ function Leads() {
   const [executiveData, setExecutiveData] = useState();
   useEffect(() => {
     setExecutiveData(getExecutive());
-  });
+  },[]);
   console.log(executiveData,"Executive Data");
 
   const [state, setState] = useState({
