@@ -41,7 +41,7 @@ export default function App() {
             <Route exact path="/login" element={<Basic />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/leads" element={<Leads />} />
-            <Route exact path="/manageLeadEntries" element={<MangeLeadEntry />} />
+            <Route exact path="/manageleadentries" element={<MangeLeadEntry />} />
             <Route exact path="/quickleadentry" element={<QuickLeadEntry />} />
             <Route path="*" element={<Navigate to="/login" />} />
           </Routes>

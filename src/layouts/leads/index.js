@@ -2,13 +2,14 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MDBox from "components/MDBox";
 import { useEffect, useState } from "react";
-import { Breadcrumb, Card, Form } from "react-bootstrap";
+import { Breadcrumb, ButtonGroup, Card, Form, ToggleButton } from "react-bootstrap";
 import { AppBar, Button, Grid, Icon, Switch, Tab, Tabs } from "@mui/material";
 import MDTypography from "components/MDTypography";
-
+import { Navigate, NavLink } from "react-router-dom";
 import "./style.css";
 import { getExecutive } from "api";
 import { dropdownData } from "./data/dropDownData";
+import ShortcutNavigation from "examples/shortcutNavigation";
 
 function Leads() {
   const [executiveData, setExecutiveData] = useState();
@@ -19,63 +20,61 @@ function Leads() {
 
   const [tableData, setTableData] = useState([]);
 
-  function isValidObject(obj) {
-    return !Object.values(obj).filter((e) => typeof e !== "undefined").length;
-  }
-
   const addHandler = () => {
     let initalData = tableData;
     console.log("sdsd", state);
-    const isValidObj = isValidObject(state);
+      initalData.push(state);
+      setTableData(initalData);
+      setState({
+        enquiryDate: "",
+        location: "",
+        source: "",
+        subSource: "",
+        campaign: "",
+        leadType: "",
+        name: "",
+        mobileNo: "",
+        whatsappNo: "",
+        customerType: "",
+        occupation: "",
+        address: "",
+        state: "",
+        city: "",
+        cityArea: "",
+        pincode: "",
+        buyingFor: "",
+        email: "",
+        leadFollowupStatus: "",
+        meeting: "",
+        noOfPeople: "",
+        remarks: "",
+        expectedPeriodOfPurchase: "",
+        leadNature: "",
+        followUpPlace: "",
+        followUpDate: "",
+        time: "",
+        productName: "",
+        productNameVehicle: "",
+        modelDescription: "",
+        color: "",
+        varient: "",
+        priceOn: "",
+        onRoadPrice: "",
+        brandName: "",
+        presentProduct: "",
+        mobileNumber: "",
+        regNo: "",
+        mfgYear: "",
+        testRide: "",
+        exptCost: "",
+        evalCost: "",
+        onCash: "",
+      });
+    }
 
-    initalData.push(state);
-    setTableData(initalData);
-    setState({
-      enquiryDate: "",
-      location: "",
-      source: "",
-      subSource: "",
-      campaign: "",
-      leadType: "",
-      name: "",
-      mobileNo: "",
-      whatsappNo: "",
-      customerType: "",
-      occupation: "",
-      address: "",
-      state: "",
-      city: "",
-      cityArea: "",
-      pincode: "",
-      buyingFor: "",
-      email: "",
-      leadFollowupStatus: "",
-      meeting: "",
-      noOfPeople: "",
-      remarks: "",
-      expectedPeriodOfPurchase: "",
-      leadNature: "",
-      followUpPlace: "",
-      followUpDate: "",
-      time: "",
-      productName: "",
-      productNameVehicle: "",
-      modelDescription: "",
-      color: "",
-      varient: "",
-      priceOn: "",
-      onRoadPrice: "",
-      brandName: "",
-      presentProduct: "",
-      mobileNumber: "",
-      regNo: "",
-      mfgYear: "",
-      testRide: "",
-      exptCost: "",
-      evalCost: "",
-      onCash: "",
-    });
-    console.log(initalData, "initial data");
+    if (!hasSomething) {
+      console.log("Please Fill Data");
+    }
   };
 
   const [state, setState] = useState({
@@ -170,10 +169,7 @@ function Leads() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-
-      <div>
-        <p>Sorcuts buttons group</p>
-      </div>
+      <ShortcutNavigation />
       <MDBox>
         <Card className="px-4 pt-3 pb-5">
           <MDBox

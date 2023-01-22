@@ -10,6 +10,7 @@ import { dropdownData } from "./data/dropDownData";
 
 import "./style.css";
 import { getExecutive } from "api";
+import ShortcutNavigation from "examples/shortcutNavigation";
 
 function MangeLeadEntry() {
   const [executiveData, setExecutiveData] = useState();
@@ -20,6 +21,49 @@ function MangeLeadEntry() {
 
   const [tableData, setTableData] = useState([]);
 
+  const staticData = [
+    {
+      leadDate: "Date:18-01-2023 Time:10:10AM",
+      executiveName: "Digvijay Singh [Lead Type]:Lead Lock",
+      prospectName: "LUCKY ANJANA [Contact No. : 989898989898] [pincode:112233]",
+      productName: "Model:ACCENT",
+      lSorcName: "Lead Source:Walk In [Lead Nature:medium]",
+      testRide: "Test Ride:No",
+      nextFollowupDate: "Followup Date:20-01-2023 Time:10AM",
+      billStatus: "",
+    },
+    {
+      leadDate: "Date:18-01-2023 Time:10:10AM",
+      executiveName: "Digvijay Singh [Lead Type]:Lead Lock",
+      prospectName: "LUCKY ANJANA [Contact No. : 989898989898] [pincode:112233]",
+      productName: "Model:ACCENT",
+      lSorcName: "Lead Source:Walk In [Lead Nature:medium]",
+      testRide: "Test Ride:No",
+      nextFollowupDate: "Followup Date:20-01-2023 Time:10AM",
+      billStatus: "",
+    },
+    {
+      leadDate: "Date:18-01-2023 Time:10:10AM",
+      executiveName: "Digvijay Singh [Lead Type]:Lead Lock",
+      prospectName: "LUCKY ANJANA [Contact No. : 989898989898] [pincode:112233]",
+      productName: "Model:ACCENT",
+      lSorcName: "Lead Source:Walk In [Lead Nature:medium]",
+      testRide: "Test Ride:No",
+      nextFollowupDate: "Followup Date:20-01-2023 Time:10AM",
+      billStatus: "",
+    },
+    {
+      leadDate: "Date:18-01-2023 Time:10:10AM",
+      executiveName: "Digvijay Singh [Lead Type]:Lead Lock",
+      prospectName: "LUCKY ANJANA [Contact No. : 989898989898] [pincode:112233]",
+      productName: "Model:ACCENT",
+      lSorcName: "Lead Source:Walk In [Lead Nature:medium]",
+      testRide: "Test Ride:No",
+      nextFollowupDate: "Followup Date:20-01-2023 Time:10AM",
+      billStatus: "",
+    },
+  ];
+
   const addHandler = () => {
     let initalData = tableData;
     initalData.push(state);
@@ -28,48 +72,14 @@ function MangeLeadEntry() {
   };
 
   const [state, setState] = useState({
-    enquiryDate: "",
-    location: "",
-    source: "",
-    subSource: "",
-    campaign: "",
-    leadType: "",
-    name: "",
-    mobileNo: "",
-    whatsappNo: "",
-    customerType: "",
-    occupation: "",
-    address: "",
-    state: "",
-    city: "",
-    cityArea: "",
-    pincode: "",
-    buyingFor: "",
-    email: "",
-    leadFollowupStatus: "",
-    meeting: "",
-    noOfPeople: "",
-    remarks: "",
-    expectedPeriodOfPurchase: "",
+    dateRange: "",
+    fromDate: "",
+    toDate: "",
+    enquiryNoNameMobileNo: "",
+    executive: "",
+    leadSource: "",
+    leadSubSource: "",
     leadNature: "",
-    followUpPlace: "",
-    followUpDate: "",
-    time: "",
-    productName: "",
-    productNameVehicle: "",
-    modelDescription: "",
-    color: "",
-    varient: "",
-    priceOn: "",
-    onRoadPrice: "",
-    brandName: "",
-    presentProduct: "",
-    regNo: "",
-    mfgYear: "",
-    testRide: "",
-    exptCost: "",
-    evalCost: "",
-    onCash: "",
   });
 
   const handleChange = (e) => {
@@ -119,37 +129,160 @@ function MangeLeadEntry() {
     <Form>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 formContainer">
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Meeting</Form.Label> <br />
-          <Switch />
+          <Form.Label className="formLabel">Date Range</Form.Label>
+          <Form.Select
+            name="dateRange"
+            onChange={handleChange}
+            value={state.dateRange}
+            aria-label="Default select example"
+          >
+            <option>With in a week</option>
+            {/* {dropdownData.dateRange.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })} */}
+          </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">No. of People</Form.Label>
+          <Form.Label className="formLabel">From Date</Form.Label>
           <Form.Control
-            name="noOfPeople"
+            name="fromDate"
             onChange={handleChange}
-            value={state.noOfPeople}
+            value={state.fromDate}
+            type="date"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+          <Form.Label className="formLabel">To Date</Form.Label>
+          <Form.Control name="toDate" onChange={handleChange} value={state.toDate} type="date" />
+        </Form.Group>
+        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+          <Form.Label className="formLabel">Enquiry No/Name/Mobile No</Form.Label>
+          <Form.Control
+            name="enquiryNoNameMobileNo"
+            onChange={handleChange}
+            value={state.enquiryNoNameMobileNo}
             type="text"
           />
         </Form.Group>
         <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">Remarks</Form.Label>
-          <Form.Control name="remarks" onChange={handleChange} value={state.remarks} type="text" />
-        </Form.Group>
-        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
-          <Form.Label className="formLabel">The expected period of Purchase</Form.Label>
+          <Form.Label className="formLabel">Location</Form.Label>
           <Form.Select
-            className="required-bullet"
-            name="customerType"
+            name="location"
             onChange={handleChange}
-            value={state.customerType}
+            value={state.location}
             aria-label="Default select example"
           >
-            <option>With in a week</option>
-            {dropdownData.expectedPeriodOfPurchaseDropdown.map((item) => {
+            <option>Select Location</option>
+            {/* {dropdownData.dateRange.map((item) => {
               return <option value={item.value}>{item.data}</option>;
-            })}{" "}
+            })} */}
           </Form.Select>
         </Form.Group>
+        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+          <Form.Label className="formLabel">Executive</Form.Label>
+          <Form.Select
+            name="executive"
+            onChange={handleChange}
+            value={state.executive}
+            aria-label="Default select example"
+          >
+            <option>Choose Executive</option>
+            {/* {dropdownData.dateRange.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })} */}
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+          <Form.Label className="formLabel">Lead Type</Form.Label>
+          <Form.Select
+            name="leadType"
+            onChange={handleChange}
+            value={state.leadType}
+            aria-label="Default select example"
+          >
+            <option>Sale</option>
+            {/* {dropdownData.leadTypeDropdown.map((item) => {
+              return <option value={item.value}>{item.data}</option>;
+            })} */}
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+          <Form.Label className="formLabel">Lead Source</Form.Label>
+          <Form.Select
+            name="leadSource"
+            onChange={handleChange}
+            value={state.leadSource}
+            aria-label="Default select example"
+          >
+            <option>Walk In</option>
+            {/* {dropdownData.sourceDropdown.map((item) => {
+                        return <option value={item.value}>{item.data}</option>;
+                      })} */}
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+          <Form.Label className="formLabel">Lead Sub Source</Form.Label>
+          <Form.Select
+            name="leadSubSource"
+            onChange={handleChange}
+            value={state.leadSubSource}
+            disabled
+            aria-label="Default select example"
+          >
+            <option>{"<Choose Source>"}</option>
+            {/* {dropdownData.subSourceDropdown.map((item) => {
+                        return <option value={item.value}>{item.data}</option>;
+                      })}{" "} */}
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3 col" controlId="exampleForm.ControlInput1">
+          <Form.Label className="formLabel">Lead Nature</Form.Label>
+          <Form.Select
+            name="leadNature"
+            onChange={handleChange}
+            value={state.leadNature}
+            disabled
+            aria-label="Default select example"
+          >
+            <option>{"<Choose Nature>"}</option>
+            {/* {dropdownData.subSourceDropdown.map((item) => {
+                        return <option value={item.value}>{item.data}</option>;
+                      })}{" "} */}
+          </Form.Select>
+        </Form.Group>
+      </div>
+
+      <div className="grpTable my-3">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Lead Date</th>
+              <th scope="col">Executive Name</th>
+              <th scope="col">Prospect Name</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">L Sorc Name</th>
+              <th scope="col">Test Ride</th>
+              <th scope="col">Next Followup Date</th>
+              <th scope="col">Bill Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {staticData.map((data) => {
+              return (
+                <tr>
+                  <td>{data.leadDate}</td>
+                  <td>{data.executiveName}</td>
+                  <td>{data.prospectName}</td>
+                  <td>{data.productName}</td>
+                  <td>{data.lSorcName}</td>
+                  <td>{data.testRide}</td>
+                  <td>{data.nextFollowupDate}</td>
+                  <td>{data.billStatus}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
 
       {commonFormButtons}
@@ -159,7 +292,8 @@ function MangeLeadEntry() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox pt={6} pb={3}>
+      <ShortcutNavigation />
+      <MDBox pt={2} pb={3}>
         <Card className="px-4 py-5">
           <MDBox
             mx={2}
