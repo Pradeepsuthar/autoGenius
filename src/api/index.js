@@ -3,15 +3,20 @@ const baseUrl = "https://app.applewoodsolutions.in/api/";
 const token = "829416af2aac42568f2ca872fd172bd9";
 
 // Get Executive
-export async function getExecutive() {
+export function getExecutive() {
   try {
-    const data = await axios.get(baseUrl + "Master/GetExecutive", {
+    fetch("https://app.applewoodsolutions.in/api/Master/GetExecutive", {
       headers: {
-        Authorization: "Bearer " + token,
+        "Authorization": "Bearer 829416af2aac42568f2ca872fd172bd9",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "application/json",
+        "X-Powered-By": "ASP.NET",
+        "X-Powered-By-Plesk": "PleskWin",
       },
+    }).then((data) => {
+      console.log(data);
+      return data;
     });
-    console.log(data);
-    return data;
   } catch (e) {
     console.log(e);
   }
