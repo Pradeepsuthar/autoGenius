@@ -29,6 +29,7 @@ function QuickLeadEntry() {
   });
 
   const handleChange = (e) => {
+    e.preventDefault();
     setState({
       ...state,
       [e.target.name]: e.target.value,
