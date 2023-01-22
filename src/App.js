@@ -13,6 +13,7 @@ import Dashboard from "layouts/dashboard";
 import QuickLeadEntry from "layouts/quickleadentry";
 import Basic from "layouts/authentication/sign-in";
 import Cover from "layouts/authentication/sign-up";
+import MangeLeadEntry from "layouts/manage-lead-entry";
 
 export default function App() {
   const [controller] = useMaterialUIController();
@@ -40,6 +41,7 @@ export default function App() {
             <Route exact path="/login" element={<Basic />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/leads" element={<Leads />} />
+            <Route exact path="/manageLeadEntries" element={<MangeLeadEntry />} />
             <Route exact path="/quickleadentry" element={<QuickLeadEntry />} />
             <Route path="*" element={<Navigate to="/login" />} />
           </Routes>

@@ -19,8 +19,15 @@ function Leads() {
 
   const [tableData, setTableData] = useState([]);
 
+  function isValidObject(obj) {
+    return !Object.values(obj).filter((e) => typeof e !== "undefined").length;
+  }
+
   const addHandler = () => {
     let initalData = tableData;
+    console.log("sdsd", state);
+    const isValidObj = isValidObject(state);
+
     initalData.push(state);
     setTableData(initalData);
     setState({
@@ -163,40 +170,13 @@ function Leads() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox pt={6} pb={3}>
-        <div className="top-breadcrumbs">
-          <Breadcrumb>
-            <Breadcrumb.Item className="breadcrumb-item">
-              <span>Purchase Bill</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span>Quotation</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span>Sale Bill</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span>Recipt Entry</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span>Current Stock</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span>Chasis Search</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span>Sale Register</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span>Veh. Mov. Report</span>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </div>
 
-        <Card className="px-4 py-5">
+      <div>
+        <p>Sorcuts buttons group</p>
+      </div>
+      <MDBox>
+        <Card className="px-4 pt-3 pb-5">
           <MDBox
-            mx={2}
-            mt={-3}
             py={3}
             px={2}
             variant="gradient"

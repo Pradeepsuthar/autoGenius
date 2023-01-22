@@ -2,7 +2,7 @@
   {
     "title": "Dashboard",
     "icon": "bi-speedometer2",
-    "path": "/"
+    "path": "/dashboard"
   },
   {
     "title": "LeadGraph",

@@ -39,11 +39,9 @@ function QuickLeadEntry() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox pt={6} pb={3}>
-        <Card className="px-4 py-5">
+      <MDBox>
+        <Card className="px-4 pt-3 pb-5">
           <MDBox
-            mx={2}
-            mt={-3}
             py={3}
             px={2}
             variant="gradient"

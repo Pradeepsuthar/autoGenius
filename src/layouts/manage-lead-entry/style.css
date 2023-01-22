@@ -30,6 +30,7 @@
 }
 
 .btn-theme {
+  display: inline-block;
   font-weight: 500;
   line-height: 1.5;
   text-align: center;
@@ -39,6 +40,7 @@
   background-color: #04c8c8 !important;
   color: #fff !important;
   padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
   border-radius: 0.475rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -77,13 +79,4 @@
 
 .grpTable table thead tr th {
   border: 1px solid #dedede;
-}
-
-.top-breadcrumbs {
-  font-size: 15px;
-  padding-left: 2px;
-}
-
-.breadcrumb-item span {
-  color: #04c8c8;
 }
