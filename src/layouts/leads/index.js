@@ -23,58 +23,53 @@ function Leads() {
   const addHandler = () => {
     let initalData = tableData;
     console.log("sdsd", state);
-      initalData.push(state);
-      setTableData(initalData);
-      setState({
-        enquiryDate: "",
-        location: "",
-        source: "",
-        subSource: "",
-        campaign: "",
-        leadType: "",
-        name: "",
-        mobileNo: "",
-        whatsappNo: "",
-        customerType: "",
-        occupation: "",
-        address: "",
-        state: "",
-        city: "",
-        cityArea: "",
-        pincode: "",
-        buyingFor: "",
-        email: "",
-        leadFollowupStatus: "",
-        meeting: "",
-        noOfPeople: "",
-        remarks: "",
-        expectedPeriodOfPurchase: "",
-        leadNature: "",
-        followUpPlace: "",
-        followUpDate: "",
-        time: "",
-        productName: "",
-        productNameVehicle: "",
-        modelDescription: "",
-        color: "",
-        varient: "",
-        priceOn: "",
-        onRoadPrice: "",
-        brandName: "",
-        presentProduct: "",
-        mobileNumber: "",
-        regNo: "",
-        mfgYear: "",
-        testRide: "",
-        exptCost: "",
-        evalCost: "",
-        onCash: "",
-      });
-    }
-
-    if (!hasSomething) {
-      console.log("Please Fill Data");
-    }
+    initalData.push(state);
+    setTableData(initalData);
+    setState({
+      enquiryDate: "",
+      location: "",
+      source: "",
+      subSource: "",
+      campaign: "",
+      leadType: "",
+      name: "",
+      mobileNo: "",
+      whatsappNo: "",
+      customerType: "",
+      occupation: "",
+      address: "",
+      state: "",
+      city: "",
+      cityArea: "",
+      pincode: "",
+      buyingFor: "",
+      email: "",
+      leadFollowupStatus: "",
+      meeting: "",
+      noOfPeople: "",
+      remarks: "",
+      expectedPeriodOfPurchase: "",
+      leadNature: "",
+      followUpPlace: "",
+      followUpDate: "",
+      time: "",
+      productName: "",
+      productNameVehicle: "",
+      modelDescription: "",
+      color: "",
+      varient: "",
+      priceOn: "",
+      onRoadPrice: "",
+      brandName: "",
+      presentProduct: "",
+      mobileNumber: "",
+      regNo: "",
+      mfgYear: "",
+      testRide: "",
+      exptCost: "",
+      evalCost: "",
+      onCash: "",
+    });
   };
 
   const [state, setState] = useState({
@@ -838,5 +833,4 @@ function Leads() {
     </DashboardLayout>
   );
 }
-
 export default Leads;

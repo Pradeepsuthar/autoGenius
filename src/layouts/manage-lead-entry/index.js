@@ -260,10 +260,10 @@ function MangeLeadEntry() {
               <th scope="col">Executive Name</th>
               <th scope="col">Prospect Name</th>
               <th scope="col">Product Name</th>
-              <th scope="col">L Sorc Name</th>
+              <th scope="col">LSorc Name</th>
               <th scope="col">Test Ride</th>
-              <th scope="col">Next Followup Date</th>
-              <th scope="col">Bill Status</th>
+              <th scope="col">NextFollowup Date</th>
+              <th scope="col">BillStatus</th>
             </tr>
           </thead>
           <tbody>
