@@ -17,6 +17,12 @@
     "npm": ">=6"
   },
   "dependencies": {
+    "@atlaskit/button": "^16.5.3",
+    "@atlaskit/css-reset": "^6.3.19",
+    "@atlaskit/form": "^8.8.3",
+    "@atlaskit/onboarding": "^10.6.6",
+    "@atlaskit/textarea": "^4.5.4",
+    "@atlaskit/textfield": "^5.3.4",
     "@emotion/cache": "11.7.1",
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
@@ -28,6 +34,8 @@
     "@testing-library/user-event": "13.5.0",
     "chart.js": "3.4.1",
     "chroma-js": "2.4.2",
+    "i": "^0.3.7",
+    "npm": "^9.3.1",
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-chartjs-2": "3.0.4",
